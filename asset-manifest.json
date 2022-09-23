@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/sytam217/react-temperature-app/static/css/main.19019d9e.css",
-    "main.js": "/sytam217/react-temperature-app/static/js/main.164c162e.js",
-    "index.html": "/sytam217/react-temperature-app/index.html",
-    "main.19019d9e.css.map": "/sytam217/react-temperature-app/static/css/main.19019d9e.css.map",
-    "main.164c162e.js.map": "/sytam217/react-temperature-app/static/js/main.164c162e.js.map"
+    "main.css": "/react-temperature-app/static/css/main.19019d9e.css",
+    "main.js": "/react-temperature-app/static/js/main.164c162e.js",
+    "index.html": "/react-temperature-app/index.html",
+    "main.19019d9e.css.map": "/react-temperature-app/static/css/main.19019d9e.css.map",
+    "main.164c162e.js.map": "/react-temperature-app/static/js/main.164c162e.js.map"
   },
   "entrypoints": [
     "static/css/main.19019d9e.css",
