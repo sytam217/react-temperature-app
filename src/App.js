@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from "react";
 
-function App() {
+const App = () => {
+
+  const [temperature, setTemperature] = useState(initialTemperature());
+  const [color, setColor] = useState(initialColor());
+
+  const increase = () => {
+    let temp;
+    setTemperature((prevState) => {
+      return prevState += 1;
+    });
+    if(temperature + 1 >= 15){
+      setColor("hot");
+    }
+  }
+
+  const decrease = () => {
+    setTemperature((prevState) => {
+      return prevState -= 1;
+    });
+    if(temperature - 1 < 15){
+      setColor("cold");
+    }
+  }
+
+  useEffect(() => {
+   let temp = JSON.stringify(temperature);
+   localStorage.setItem("temperature", temp); 
+  }, [temperature]);
+
+  function initialTemperature() {
+    let temp = JSON.parse(localStorage.getItem("temperature"));
+    return temp || 20;
+  }
+
+  function initialColor() {
+    let temp = JSON.parse(localStorage.getItem("temperature"));
+    if(temp) {
+      if(temp >= 15) {
+        return "hot";
+      } else return "cold";
+    } else return "hot";
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className={`degree ${color}`}>
+        <p>{temperature}°C</p>
+      </div>
+      <div className="button-container">
+        <button onClick={increase}>+</button>
+        <button onClick={decrease}>-</button>
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
